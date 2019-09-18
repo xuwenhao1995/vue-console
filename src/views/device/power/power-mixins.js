@@ -70,6 +70,7 @@ export default {
             this.getPowerList()
         },
         async getPowerList() {
+            this.loading = true
             const res = await this.jsp("/pa.do?method=searchPa", {
                 _dc: 1567652704564,
                 page: this.pagenum,
@@ -83,6 +84,7 @@ export default {
                 results
             } = res;
             if (success) {
+                this.loading = false
                 this.powerList = results;
                 this.total = results.length;
             } else {
@@ -96,6 +98,8 @@ export default {
             total: -1,
             pagenum: 1,
             pagesize: 50,
+
+            loading: false,
 
             title: "",
             disabled: false,

@@ -432,6 +432,8 @@
                 :label="item.band"
               >{{item.str}}</el-checkbox>
               <el-input-number
+                :precision="0"
+                :step="1"
                 :disabled="!item.checked"
                 style=" margin-right: 10px;"
                 v-model="item.start"
@@ -440,6 +442,8 @@
                 :max="item.max"
               ></el-input-number>
               <el-input-number
+                :precision="0"
+                :step="1"
                 :disabled="!item.checked"
                 controls-position="right"
                 v-model="item.end"

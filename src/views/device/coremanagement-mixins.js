@@ -271,7 +271,6 @@ export default {
                 limit: this.pagesize
             });
             const {
-                //对象解构赋值
                 msg,
                 success,
                 results

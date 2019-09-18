@@ -11,6 +11,7 @@
       size="mini"
       height="500px"
       :data="powerList"
+      v-loading="loading"
       border
       style="width: 100%;margin-top: 10px;"
       @selection-change="handleSelectionChange"

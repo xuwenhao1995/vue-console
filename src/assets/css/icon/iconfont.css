@@ -16,6 +16,8 @@
 }
 
 .icon-dingshi:before {
+  margin-left: 3px;
+  margin-right: 10px;
   content: "\e609";
 }
 
@@ -56,6 +58,8 @@
 }
 
 .icon-tongxin-1:before {
+  margin-left: 3px;
+  margin-right: 10px;
   content: "\ec8c";
 }
 
@@ -64,10 +68,14 @@
 }
 
 .icon-luyouzhuizong-:before {
+  margin-left: 3px;
+  margin-right: 10px;
   content: "\e66a";
 }
 
 .icon-RRCjianlichenggongshuai:before {
+  margin-left: 3px;
+  margin-right: 10px;
   content: "\e6d0";
 }
 

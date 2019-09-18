@@ -42,6 +42,8 @@ export default {
       if (success) {
         //保存token值
         localStorage.setItem("token", results);
+        this.$store.commit("setUserName", this.formdata.userId);
+
         this.$router.push({ name: "home" });
         //element 提示框
         this.$message.success(msg);
@@ -54,7 +56,7 @@ export default {
 </script >
 
 <style lang="scss" scoped>
-.login-wrap {
+.login-wrap { 
   height: 100%;
   background-color: #909399;
   // 弹性盒布局

@@ -9,6 +9,7 @@ import Moment from 'moment'
 
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+import { Message } from 'element-ui'
 //全局css
 import './assets/css/reset.css'
 //图标
@@ -35,6 +36,20 @@ Vue.use(VueJsonp)
 Vue.use(VueCookies)
 Vue.use(jsonp)
 Vue.prototype.util = Util
+
+//路由导航守卫
+router.beforeEach((to, from, next) => {
+  if (to.path === '/login') {
+    next()
+  } else {
+    if (!store.getters.getUserName) {
+      Message.warning('你未登陆！');
+      router.push({ name: 'login' })
+      return
+    }
+    next()
+  }
+})
 
 new Vue({
   el: '#app',

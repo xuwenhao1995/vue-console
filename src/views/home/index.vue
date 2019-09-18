@@ -20,13 +20,23 @@
     </el-header>
     <el-container>
       <el-aside class="aside" :width="asideWith">
-        <el-switch
-          @change="changeAsideWith()"
-          class="switch"
-          v-model="isCollapse"
-          active-color="#13ce66"
-          inactive-color="#ff4949"
-        ></el-switch>
+
+        <el-button
+          style="margin-left: 5px;"
+          icon="el-icon-arrow-right"
+          @click="changeAsideWith()"
+          v-if="isCollapse"
+          circle
+        ></el-button>
+
+        <el-button
+          style="margin-left: 150px;"
+          icon="el-icon-arrow-left"
+          @click="changeAsideWith()"
+          v-if="!isCollapse"
+          circle
+        ></el-button>
+
         <el-menu
           :unique-opened="true"
           class="el-menu-vertical-demo"
@@ -62,7 +72,7 @@
             <info />
           </el-tab-pane>
           <el-tab-pane
-          class="tabPane"
+            class="tabPane"
             closable
             v-for="(item, index) in editableTabs"
             :key="index"
@@ -128,7 +138,7 @@ export default {
   .main {
     background-color: white;
 
-    .tabPane{
+    .tabPane {
       height: 100%;
     }
 

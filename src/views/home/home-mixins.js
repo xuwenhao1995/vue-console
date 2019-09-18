@@ -6,14 +6,13 @@ export default {
     components: {
         info: Info
     },
-    //判断是否登陆
-    beforeCreate() {
-        const token = localStorage.getItem("token");
-
-        if (!token) {
-            this.$router.push({ name: "login" });
-        }
-    },
+    // //判断是否登陆
+    // beforeCreate() {
+    //     const token = localStorage.getItem("token");
+    //     if (!token) {
+    //         this.$router.push({ name: "login" });
+    //     }
+    // },
 
     data() {
         return {
@@ -101,6 +100,7 @@ export default {
                 .catch(() => { });
         },
         changeAsideWith() {
+            this.isCollapse = !this.isCollapse
             this.asideWith = this.isCollapse ? "60px" : "200px";
         },
         changeTab(editableTabsValue) {
@@ -184,7 +184,6 @@ export default {
                 .then(async () => {
                     const res = await this.jsp("/reboot/restart.do");
                     const {
-                        //对象解构赋值
                         msg,
                         success
                     } = res;
@@ -204,6 +203,7 @@ export default {
                 success,
                 results
             } = res;
+
             if (success) {
                 this.deviceInfo = JSON.parse(results);
                 this.lockType = this.deviceInfo.lockFlag == 0 ? "danger" : "success";
@@ -216,6 +216,7 @@ export default {
 
         logout() {
             localStorage.clear();
+            this.$store.commit("setUserName", "");
             this.$message.success("已安全退出");
             this.$router.push({ name: "login" });
         },

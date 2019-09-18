@@ -85,6 +85,10 @@ export default {
         return formVal;
     },
 
+    getVal(val) {
+        return JSON.parse(JSON.stringify(val))
+    },
+
     showMsg(content, msg) {
         content.$alert(msg, "提示", {
             confirmButtonText: "确定",
